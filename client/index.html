@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>dojo from scratch</title>
+    <script>
+        this.dojoConfig = {
+            async: true,
+            parseOnLoad: false,
+            tlmSiblingOfDojo: false,
+            baseUrl: "",
+            packages: [
+                { name: "dojo", location: "dojo-src/dojo" },
+                { name: "dijit", location: "dojo-src/dijit" },
+                { name: "dojox", location: "dojo-src/dojox" },
+                { name: "app", location: "app" }
+            ]
+        };
+    </script>
+    <script src="dojo-src/dojo/dojo.js"></script>
+    <link rel="stylesheet" href="client/css/main.css" />
+    <script>
+
+        require([
+            'dojo/_base/event',
+            'dojo/dom',
+            'dojo/dom-attr',
+            'dojo/dom-construct',
+            'dojo/on',
+            'dojo/domReady!'
+        ],
+        function (dojoEvent, dom, domAttr, domConstruct, on) {
+            var handlers = [];
+            var alphabet = [
+                {
+                    lao: "ກ",
+                    rom: "ko",
+                    song: "http://laocom.free.fr/3L/3L_audio/ko_kai_1.mp3"
+                }
+            ];
+            var launchBtnNode = dom.byId("launch");
+            var laoLetterNode = dom.byId("laoLetter");
+            var playerNode = dom.byId("player");
+            var playerSourceNode = dom.byId("playerSource");
+            handlers.push(
+                on(launchBtnNode, "click", function () {
+                    laoLetterNode.textContent = alphabet[0].lao;
+                    domAttr.set(playerSourceNode, "src", alphabet[0].song);
+                    playerNode.load();
+                    playerNode.play();
+                })
+            );
+        });
+    </script>
+</head>
+<body>
+    <button type="button" id="launch">Launch lao letter challenge !</button>
+    <div class="bigText" id="laoLetter"></div>
+    <div>
+        <audio id="player">
+            <source id="playerSource" type="audio/mp3"  />
+            Votre navigateur n'est pas compatible
+        </audio>
+    </div>
+</body>
+</html>
