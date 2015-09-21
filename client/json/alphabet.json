@@ -1,0 +1,138 @@
+[
+    {
+        "lao": "ກ",
+        "rom": "Ko",
+        "song": "01_ko_kai_1.mp3"
+    },
+    {
+        "lao": "ຂ",
+        "rom": "Khò",
+        "song": "02_kho_khai_1.mp3"
+    },
+                    {
+        "lao": "ຄ",
+        "rom": "Kho",
+        "song": "03_kho_khouay_1.mp3"
+    },
+    { 
+        "lao": "ງ",
+        "rom": "Ngo",
+        "song": "04_Ngo_Ngou_1.mp3"
+    },
+    { 
+        "lao": "ຈ",
+        "rom": "Cho",
+        "song": "05_Cho_Choua_1.mp3"
+    },
+    { 
+        "lao": "ສ",
+        "rom": "Sò",
+        "song": "06_So_Seua_1.mp3"
+
+    },
+    { 
+        "lao": "ຊ",
+        "rom": "Xo",
+        "song": "07_Xo_Xang_1.mp3"
+    },
+    { 
+        "lao": "ຍ",
+        "rom": "Gno",
+        "song": "08_Gno_Gnoug_.mp3"
+    },
+    { 
+        "lao": "ດ",
+        "rom": "Do",
+        "song": "09_Do_Dek_1.mp3" 
+    },
+    { 
+        "lao": "ຕ",
+        "rom": "To",
+        "song": "10_To_Ta_1.mp3" 
+    },
+    { 
+        "lao": "ຖ",
+        "rom": "Thò",
+        "song": "11_Tho_Thay_1.mp3" 
+    },
+    { 
+        "lao": "ທ",
+        "rom": "Tho",
+        "song": "12_Tho_Thoung_1.mp3" 
+    },
+    { 
+        "lao": "ນ",
+        "rom": "No",
+        "song": "13_No_Nok_1.mp3"
+    },
+    { 
+        "lao": "ບ",
+        "rom": "Bo",
+        "song": "14_Bo_Beth_1.mp3" 
+    },
+    { 
+        "lao": "ປ",
+        "rom": "Po",
+        "song": "15_Po_Pa_1.mp3" 
+    },
+    { 
+        "lao": "ຜ",
+        "rom": "Phò",
+        "song": "16_Pho_Pheung_2.mp3" 
+    },
+    { 
+        "lao": "ຝ",
+        "rom": "Fò",
+        "song": "17_Fo_Faa_2.mp3" 
+    },
+    { 
+        "lao": "ພ",
+        "rom": "Pho",
+        "song": "18_Pho_Phou_1.mp3" 
+    },
+    { 
+        "lao": "ຟ",
+        "rom": "Fo",
+        "song": "19_Fo_Fai_1.mp3" 
+    },
+    { 
+        "lao": "ມ",
+        "rom": "Mo",
+        "song": "20_Mo_Ma_1.mp3" 
+    },
+    { 
+        "lao": "ຢ",
+        "rom": "Yo",
+        "song": "21_Yo_Yaa_1.mp3" 
+    },
+    { 
+        "lao": "ຣ",
+        "rom": "Ro",
+        "song": "22_Ro_Roth_1.mp3" 
+    },
+    { 
+        "lao": "ລ",
+        "rom": "Lo",
+        "song": "23_Lo_Ling_2.mp3" 
+    },
+    { 
+        "lao": "ວ",
+        "rom": "Vo",
+        "song": "24_Vo_Vii_2.mp3" 
+    },
+    { 
+        "lao": "ຫ",
+        "rom": "Hò",
+        "song": "25_Ho_Hai_1.mp3" 
+    },
+    { 
+        "lao": "ອ",
+        "rom": "O",
+        "song": "26_O_OO_1.mp3" 
+    },
+    { 
+        "lao": "ຮ",
+        "rom": "Ho",
+        "song": "27_Ho_Heua_2.mp3"
+    }
+]

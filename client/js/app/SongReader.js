@@ -40,6 +40,11 @@ define([
 				case 5: 
 					title = "Cho ( Choua/àºˆàº»àº§ ) ---> [ Sieng Kaang ]";
 					song = "http://laocom.free.fr/3L/3L_audio/05_Cho_Choua_1.mp3";
+
+
+
+
+					
 					break;
 				case 6: 
 					title = "So ( Seua/à»€àºªàº·àº­ ) ---> [ Sieng Soung ]";

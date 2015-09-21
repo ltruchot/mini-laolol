@@ -1,3 +1,83 @@
-.big-text {
-  font-size: 24px;
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	background-color: #6fc0ed;
+
+	.all-container {
+		width:903px;
+		height: 849px;
+		margin:auto;
+		padding:50px;
+		background-image: url(../images/bg_champasak_fondu.jpg);
+		background-repeat: no-repeat;	
+		position:relative;
+
+		.big-title {
+			margin:0;
+			padding:0;
+			span {
+				display:none;
+			}
+			img {
+				display:block;
+				padding:0;
+				margin:0 auto;
+			}
+		}
+
+		.special-text {
+			margin:10px 0;
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		.simple-mobile-container {
+			background-color: #FFF;
+			border-radius: 5px;
+			opacity:0.9;
+			margin:10px auto;
+			width:320px;
+			box-sizing:border-box;
+		}
+
+		.header-container {
+			font-size:18px;
+			padding:0;			
+			text-align: center;
+		}
+
+		.main-container {
+			padding:20px;
+			text-align: center;
+
+			.letter-container {
+				font-size: 100px;
+				line-height: 100px;
+				padding: 30px;
+				text-align: center;
+				height:100px;
+			}
+
+			.big-input {
+				display: block;
+				text-align: center;
+				font-size: 30px;
+				height:40px;
+				line-height: 40px;
+				padding:0;
+				margin:0;
+				width: 100%;
+			}
+			.big-button {
+				display:block;
+				opacity: 1;
+				margin: auto;
+				font-size:20px;
+				height:50px;
+				line-height:50px;
+				font-family: Helvetica, Arial, sans-serif;
+				cursor: pointer;
+			}
+
+		}		
+	}
 }
