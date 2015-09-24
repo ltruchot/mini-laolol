@@ -1,21 +1,31 @@
 <div>
-    <div class="simple-mobile-container header-container">
-        <h1 class="big-title">
-            <img alt="laolol" src="images/laolol_title.png" /><span>LAOLOL</span>
-        </h1>
-    </div>  
-    <div id="spellLetterGame" class="simple-mobile-container  main-container">
-        <h2>Lao letter Challenge</h2>
-        <button type="button" class="big-button" data-dojo-attach-point="launchBtnNode">Try a new letter</button>
-        <div class="letter-container" data-dojo-attach-point="laoLetterNode"></div>
-        <div class="input-text-container" id="romLetters">
-            <input type="text" data-dojo-attach-point="answerInputNode" class="big-input" value="" />
+    <div class="full-screen-mobile-container">
+        <div class="simple-mobile-container header-container">
+            <h1 class="big-title">
+                <img alt="laolol" src="images/laolol_title.png" /><span>LAOLOL</span>
+            </h1>
+        </div>  
+        <div id="spellLetterGame" class="simple-mobile-container  main-container">
+            <h2>Lao letter Challenge</h2>
+            <button type="button" class="big-button" data-dojo-attach-point="launchBtnNode">Try a new letter</button>
+            <div class="sub-container">
+                <div class="letter-container" data-dojo-attach-point="laoLetterNode"></div>
+                <div class="illustration-container hidden splitted-container" data-dojo-attach-point="illustrationNode">
+                    <span class="" data-dojo-attach-point="laoWordNode"></span>
+                    <img class="hidden" data-dojo-attach-point="illustrationImgNode" src="" />
+                </div>
+            </div>
+            <div class="bottom-container">
+                <div class="input-text-container" id="romLetters">
+                    <input type="text" data-dojo-attach-point="answerInputNode" class="big-input" value="" />
+                </div>
+                <div class="special-text" data-dojo-attach-point="scoreNode">                    
+                </div>
+            </div>
         </div>
-        <div class="special-text" data-dojo-attach-point="scoreNode">
-        </div>
+        <audio data-dojo-attach-point="playerNode">
+            <source data-dojo-attach-point="playerSourceNode" type="audio/mp3"  />
+            Votre navigateur n'est pas compatible
+        </audio>
     </div>
-    <audio data-dojo-attach-point="playerNode">
-        <source data-dojo-attach-point="playerSourceNode" type="audio/mp3"  />
-        Votre navigateur n'est pas compatible
-    </audio>
 </div>

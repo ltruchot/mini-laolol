@@ -35,11 +35,11 @@ function(_WidgetBase, _TemplatedMixin, declare, dojoEvent, lang, dom, domAttr, d
 		 * @description Contains the all collection of lao letters with metainfos
 		 */
         alphabet: JSON.parse(jsonAlphabet),
-        randIndex: 0,
+        randIndex: -1,
         currentScore: 0,
-        currentTry: 0,
+        currentTryNumber: 0,
         tryNumber: 0,
-        gameTurnNumber: 20,
+        gameTurnNumber: 20,        
         templateString: tmpl,
 			
 		/** @constructor */
@@ -56,12 +56,25 @@ function(_WidgetBase, _TemplatedMixin, declare, dojoEvent, lang, dom, domAttr, d
 			this.inherited(arguments);
 			this.own(
                 on(this.launchBtnNode, "click", lang.hitch(this, function () {
+                    var newRandIndex = -1;
+
+                    //reset dom state for a new letter try
+                    this.laoWordNode.textContent = "";
+                    domClass.remove(this.laoLetterNode, "splitted-container");
+                    domClass.add(this.illustrationNode, "hidden");
                     domAttr.set(this.answerInputNode, "value", "");
                     domStyle.set(this.laoLetterNode, "color", "black");
                     domAttr.remove(this.answerInputNode, "disabled"); 
                     this.switchButtonState(false);
                     this.answerInputNode.focus();
-                    this.randIndex = Math.floor(Math.random() * this.alphabet.length - 1) + 1;
+
+                    //ensure that the random index isn't the same 2 times
+                    do {
+                        newRandIndex = Math.floor(Math.random() * this.alphabet.length - 1) + 1;
+                    } while (this.randIndex === newRandIndex);
+
+                    //register and display new lao letter
+                    this.randIndex = newRandIndex;
                     this.laoLetterNode.textContent = this.alphabet[this.randIndex].lao;                    
                 })),
                 on(this.answerInputNode, "keypress", lang.hitch(this, function (evt) {
@@ -87,12 +100,12 @@ function(_WidgetBase, _TemplatedMixin, declare, dojoEvent, lang, dom, domAttr, d
                             this.endCurrentLetterTry();
                             
                         }
-                        if (this.currentTry < this.gameTurnNumber) {
-                            this.scoreNode.textContent = "Score: " + this.currentScore + " / " + this.currentTry;
+                        if (this.currentTryNumber < this.gameTurnNumber) {
+                            this.scoreNode.textContent = "Score: " + this.currentScore + " / " + this.currentTryNumber;
                         }
                         else {
-                            this.scoreNode.textContent = "Final Score: " + this.currentScore + " / " + this.currentTry;
-                            this.currentTry = 0;
+                            this.scoreNode.textContent = "Final Score: " + this.currentScore + " / " + this.currentTryNumber;
+                            this.currentTryNumber = 0;
                             this.currentScore = 0;
                             //domAttr.set(this.answerInputNode, "value", "");
                             //this.laoLetterNode.textContent = "";
@@ -126,10 +139,27 @@ function(_WidgetBase, _TemplatedMixin, declare, dojoEvent, lang, dom, domAttr, d
             domAttr.set(this.answerInputNode, "disabled", "true");
             this.playerNode.load();
             this.playerNode.play();
+
+            //display lao word and illustration linked to current letter
+            var laoWord = this.alphabet[this.randIndex].laoWord;
+            var romWord = this.alphabet[this.randIndex].romWord && this.alphabet[this.randIndex].romWord.fr;
+            var illustration = this.alphabet[this.randIndex].illustration;
+            if (laoWord && romWord) {
+                this.laoWordNode.textContent = laoWord + " / " + romWord;
+                domClass.remove(this.illustrationNode, "hidden");
+                domClass.add(this.laoLetterNode, "splitted-container");
+            }
+            if (illustration) {
+                domAttr.set(this.illustrationImgNode, "src", "/illustration/" + illustration);
+                on(this.illustrationImgNode, "load", lang.hitch(this, function () {
+                    domClass.remove(this.illustrationImgNode, "hidden"); 
+                }));
+                               
+            }
             this.switchButtonState(true);  
             this.launchBtnNode.focus();
             this.tryNumber = 0;
-            this.currentTry++; 
+            this.currentTryNumber++; 
         }           
             
 	});

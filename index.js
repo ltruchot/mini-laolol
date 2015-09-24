@@ -10,6 +10,7 @@ var dir = {
 	clientApp: path.join(__dirname, "client/js/app"),
 	clientAppTemplates: path.join(__dirname, "client/js/app/templates"),
 	clientImages: path.join(__dirname, "client/images"),
+	clientIllustration: path.join(__dirname, "client/images/illustration"),
 	clientJson: path.join(__dirname, "client/json"),
 	clientMp3: path.join(__dirname, "client/mp3"),
 	clientDojoSource : path.join(__dirname, "client/js/dojo-release-1.10.4-src")
@@ -23,6 +24,7 @@ app.use('/app', express.static(dir.clientApp));
 app.use('/appTemplates', express.static(dir.clientAppTemplates));
 app.use('/dojo-src', express.static(dir.clientDojoSource));
 app.use('/images', express.static(dir.clientImages));
+app.use('/illustration', express.static(dir.clientIllustration));
 app.use('/mp3', express.static(dir.clientMp3));
 app.use('/json', express.static(dir.clientJson));
 app.get('/', function(req, res){
