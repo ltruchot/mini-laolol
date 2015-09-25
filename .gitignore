@@ -26,4 +26,7 @@ build/Release
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
 
+#laolol
 public/lib/dojo-release-1.10.4-src
+client/.sass-cache
+
