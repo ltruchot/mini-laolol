@@ -8,7 +8,7 @@
             "fr": "kay",
             "en": "kai"
         },
-        "illustration": "kay.gif"
+        "illustration": "01_kay.gif"
     },
     {
         "lao": "ຂ",
@@ -19,7 +19,7 @@
             "fr": "khay",
             "en": "khai"
         },
-        "illustration": "khay.gif"       
+        "illustration": "02_khay.gif"       
     },
                     {
         "lao": "ຄ",
@@ -30,29 +30,29 @@
             "fr": "khoua:y",
             "en": "khuaai"
         },
-        "illustration": "khouay.jpg"
+        "illustration": "03_khouay.gif"
     },
     { 
         "lao": "ງ",
         "rom": "Ngo",
         "song": "04_Ngo_Ngou_1.mp3",
-        "laoWord": "ງູ",
+        "laoWord": "ງົວ",
         "romWord": {
-            "fr": "ngou:",
-            "en": "ngu"
+            "fr": "ngoua:",
+            "en": "ngua"
         },
-        "illustration": "khouay.jpg"
+        "illustration": "04_ngoua.jpg"
     },
     { 
         "lao": "ຈ",
         "rom": "Cho",
         "song": "05_Cho_Choua_1.mp3",
-        "laoWord": "",
+        "laoWord": "ຈອກ",
         "romWord": {
             "fr": "",
-            "en": ""
+            "en": "chok"
         },
-        "illustration": ""
+        "illustration": "05_chok.jpg"
     },
     { 
         "lao": "ສ",

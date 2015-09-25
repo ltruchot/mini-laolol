@@ -142,7 +142,7 @@ function(_WidgetBase, _TemplatedMixin, declare, dojoEvent, lang, dom, domAttr, d
 
             //display lao word and illustration linked to current letter
             var laoWord = this.alphabet[this.randIndex].laoWord;
-            var romWord = this.alphabet[this.randIndex].romWord && this.alphabet[this.randIndex].romWord.fr;
+            var romWord = this.alphabet[this.randIndex].romWord && (this.alphabet[this.randIndex].romWord.fr || this.alphabet[this.randIndex].romWord.en);
             var illustration = this.alphabet[this.randIndex].illustration;
             if (laoWord && romWord) {
                 this.laoWordNode.textContent = laoWord + " / " + romWord;
