@@ -4,13 +4,12 @@ var compass = require('node-compass');
 
 var app = express();
 
-
 var dir = {
-	client: path.join(__dirname, "client"),
-	style: path.join(__dirname, "client", "css"),
-	application: path.join(__dirname, "client", "views", "laolol", "laoletterchallenge"),
-	public: path.join(__dirname, "public")	
-}; 
+	'client': path.join(__dirname, 'client'),
+	'style': path.join(__dirname, 'client', 'css'),
+	'application': path.join(__dirname, 'client', 'views', 'laolol', 'laoletterchallenge'),
+	'public': path.join(__dirname, 'public')
+};
 
 app.use('/client', express.static(dir.client));
 app.use('/style', express.static(dir.style));
