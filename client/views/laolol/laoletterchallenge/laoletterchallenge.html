@@ -6,19 +6,17 @@
     <script>
         this.dojoConfig = {
             async: true,
-            parseOnLoad: false,
-            tlmSiblingOfDojo: false,
+            parseOnLoad: true,
             baseUrl: "",
             packages: [
-                { name: "dojo", location: "public/lib/dojo-release-1.10.4-src/dojo" },
-                { name: "dijit", location: "public/lib/dojo-release-1.10.4-src/dijit" },
-                { name: "dojox", location: "public/lib/dojo-release-1.10.4-src/dojox" },
+                { name: "dojo", location: "public/lib/dojo" },
+                { name: "dijit", location: "public/lib/dijit" },
                 { name: "app", location: "public/js/app" }
             ]
         };
     </script>
     <!-- <script src="public/lib/dojo-release-1.10.4-src/dojo.js"></script> -->
-    <script src="public/lib/dojo.js"></script>
+    <script src="public/lib/dojo/dojo.js"></script>
     <link rel="stylesheet" href="style/laoletterchallenge.css" />
     <script>
 

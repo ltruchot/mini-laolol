@@ -2,15 +2,16 @@
   "name": "laolol",
   "version": "0.0.0",
   "description": "A little application learn lao language",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "express": "^4.13.3",
     "node-compass": "^0.2.4"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"    
   },
-  "author": "Loïc TRUCHOT",
+  "author": "Loic TRUCHOT",
   "license": "ISC"
 }
