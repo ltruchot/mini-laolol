@@ -43,6 +43,7 @@ function(Chronometer, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, dec
         tryNumber: 0,
         gameTurnNumber: 20,
         templateString: tmpl,
+        currentIllustration: '',
 
         /** @constructor */
         constructor: function () {
@@ -56,7 +57,11 @@ function(Chronometer, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, dec
         startup: function () {
             console.log('app/LaoLetterChallenge@startup');
             this.inherited(arguments);
+            this.prepareNotice();
             this.own(
+                on(this.soundInterruptorNode, 'click', lang.hitch(this, function () {
+                    this.switchSoundInterruptorState();
+                })),
                 on(this.launchBtnNode, 'click', lang.hitch(this, function () {
                     var newRandIndex = -1;
 
@@ -88,7 +93,16 @@ function(Chronometer, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, dec
                     //register and display new lao letter
                     this.randIndex = newRandIndex;
                     this.laoLetterNode.textContent = this.alphabet[this.randIndex].lao;
+                    domAttr.set(this.playerSourceNode, 'src', '/public/mp3/' + this.alphabet[this.randIndex].song);
+                    this.currentIllustration = this.alphabet[this.randIndex].illustration || '';
+                    if (this.currentIllustration) {
+                        on(this.illustrationImgNode, 'load', lang.hitch(this, function () {
+                            domClass.remove(this.illustrationImgNode, 'hidden');
+                        }));
+                        domAttr.set(this.illustrationImgNode, 'src', '/public/images/illustration/' + this.currentIllustration);
+                    }
                 })),
+
                 on(this.answerInputNode, 'keypress', lang.hitch(this, function (evt) {
                     if (evt.keyCode === keys.ENTER) {
                         var currentValue = domAttr.get(this.answerInputNode, 'value');
@@ -128,6 +142,35 @@ function(Chronometer, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, dec
         },
 
         /**
+         * @method switchSoundInterruptorState
+         * @description switch the sound state: true or false
+         */
+        switchSoundInterruptorState: function() {
+            console.log('app/LaoLetterChallenge@switchSoundInterruptorState');
+            if (domClass.contains(this.soundInterruptorNode, 'icon-volume-mute2')) {
+                domClass.remove(this.soundInterruptorNode, 'icon-volume-mute2');
+                domClass.add(this.soundInterruptorNode, 'icon-volume-medium');
+            }
+            else {
+                domClass.remove(this.soundInterruptorNode, 'icon-volume-medium');
+                domClass.add(this.soundInterruptorNode, 'icon-volume-mute2');
+            }
+        },
+
+        /**
+         * @method prepareNotice
+         * @description to prepare a help table for users
+         */
+        prepareNotice: function() {
+            console.log('app/LaoLetterChallenge@prepareNotice');
+            var noticeTable = domConstruct.toDom('<table><tr><th>Lao</th><th>Français</th><th>English</th></tr></table>');
+            this.alphabet.forEach(lang.hitch(this, function (letter) {
+                var row = domConstruct.toDom('<tr><td>' + letter.lao + '</td><td></td><td></td></tr>');
+                domConstruct.place(row, noticeTable);
+            }));
+        },
+
+        /**
          * @method switchButtonState
          * @description enable/disable the given button
          * @param  {boolean} onState [description]
@@ -147,7 +190,6 @@ function(Chronometer, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, dec
         endCurrentLetterTry: function () {
             console.log('app/endCurrentLetterTry@constructor');
             this.chronometer.pauseChrono();
-            domAttr.set(this.playerSourceNode, 'src', '/public/mp3/' + this.alphabet[this.randIndex].song);
             domAttr.set(this.answerInputNode, 'disabled', 'true');
             this.playerNode.load();
             this.playerNode.play();
@@ -160,13 +202,6 @@ function(Chronometer, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, dec
                 this.laoWordNode.textContent = laoWord + ' / ' + romWord;
                 domClass.remove(this.illustrationNode, 'hidden');
                 domClass.add(this.laoLetterNode, 'splitted-container');
-            }
-            if (illustration) {
-                domAttr.set(this.illustrationImgNode, 'src', '/public/images/illustration/' + illustration);
-                on(this.illustrationImgNode, 'load', lang.hitch(this, function () {
-                    domClass.remove(this.illustrationImgNode, 'hidden');
-                }));
-
             }
             this.switchButtonState(true);
             this.launchBtnNode.focus();

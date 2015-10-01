@@ -55,9 +55,32 @@ body {
 				}
 
 				&.main-container {
-					padding:20px;
+					padding:0 20px;
 					text-align: center;
 					min-height: 380px;
+					position:relative;
+
+					h2 {
+						margin:0;
+						padding:10px 0;
+					}
+
+					.optionsContainer {
+						position:absolute;
+						top:8px;
+						left:0;
+						width:30px;
+
+						.option-icon {
+							width:30px;
+							box-sizing:border-box;
+							padding:10px 0 0 0;
+							display: block;
+							text-align: center;
+							cursor: pointer;
+						}
+					}
+
 
 					.sub-container {
 						margin: 15px 0 0 0;

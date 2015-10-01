@@ -17,6 +17,7 @@
     </script>
     <!-- <script src="public/lib/dojo-release-1.10.4-src/dojo.js"></script> -->
     <script src="public/lib/dojo/dojo.js"></script>
+    <link rel="stylesheet" href="style/icomoon.css" />
     <link rel="stylesheet" href="style/laoletterchallenge.css" />
     <script>
 
@@ -28,7 +29,7 @@
         ],
         function (LaoLetterChallenge, dom, domConstruct) {
             var laoLetterChallengeContainerNode = dom.byId("laoLetterChallengeContainer");
-            var laoLetterChallenge = new LaoLetterChallenge();            
+            var laoLetterChallenge = new LaoLetterChallenge();
             domConstruct.place(laoLetterChallenge.domNode, laoLetterChallengeContainerNode);
             laoLetterChallenge.startup();
         });
