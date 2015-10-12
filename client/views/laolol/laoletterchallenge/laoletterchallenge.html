@@ -2,16 +2,23 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>LAOLOL: games to learn Lao Language</title>
     <script>
         this.dojoConfig = {
             async: true,
             parseOnLoad: true,
-            baseUrl: "",
+            baseUrl: '',
             packages: [
-                { name: "dojo", location: "public/lib/dojo" },
-                { name: "dijit", location: "public/lib/dijit" },
-                { name: "app", location: "public/js/app" }
+                {
+                    name: 'dojo', location: 'public/lib/dojo'
+                },
+                {
+                    name: 'dijit', location: 'public/lib/dijit'
+                },
+                {
+                    name: 'app', location: 'public/js/app'
+                }
             ]
         };
     </script>
@@ -22,21 +29,79 @@
     <script>
 
         require([
-            "app/LaoLetterChallenge",
-            "dojo/dom",
-            "dojo/dom-construct",
-            "dojo/domReady!"
+            'app/LaoLetterChallenge',
+            'dojo/_base/array',
+            'dojo/dom',
+            'dojo/dom-attr',
+            'dojo/dom-class',
+            'dojo/dom-construct',
+            'dojo/json',
+            'dojo/NodeList-dom',
+            'dojo/NodeList-traverse',
+            'dojo/on',
+            'dojo/query',
+            'dojo/text!/public/json/consonnes.json',
+            'dojo/text!/public/json/voyelles.json',
+            'dojo/domReady!'
         ],
-        function (LaoLetterChallenge, dom, domConstruct) {
-            var laoLetterChallengeContainerNode = dom.byId("laoLetterChallengeContainer");
-            var laoLetterChallenge = new LaoLetterChallenge();
-            domConstruct.place(laoLetterChallenge.domNode, laoLetterChallengeContainerNode);
-            laoLetterChallenge.startup();
+        function (LaoLetterChallenge, array, dom, domAttr, domClass, domConstruct, JSON, nlDom, nlTraverse, on, query, jsonConsonnes, jsonVoyelles) {
+            var handlers = [];
+            var games = [];
+            var laoLetterChallengeContainerNode = dom.byId('laoLetterChallengeContainer');
+            var laoLetterTabContainerNode = dom.byId('laoLetterTabContainer');
+            var laoLetterChallengeConsonant = new LaoLetterChallenge(JSON.parse(jsonConsonnes), 'consonants');
+            var laoLetterChallengeVowel = new LaoLetterChallenge(JSON.parse(jsonVoyelles), 'vowels');
+            games.push(laoLetterChallengeConsonant, laoLetterChallengeVowel);
+            domConstruct.place(laoLetterChallengeConsonant.domNode, laoLetterChallengeContainerNode);
+            domConstruct.place(laoLetterChallengeVowel.domNode, laoLetterChallengeContainerNode);
+            laoLetterChallengeConsonant.startup();
+            laoLetterChallengeVowel.startup();
+            domClass.remove(games[0].domNode, 'hidden');
+            handlers.push(on(laoLetterTabContainerNode, '.simple-tab:click', function (event) {
+                query('.simple-tab').addClass('inactive');
+                var currentTab = query(event.target).closest('.simple-tab');
+                domClass.remove(currentTab[0], 'inactive');
+                var currentTitle = domAttr.get(currentTab[0], 'title');
+                array.forEach(games, function(game) {
+                    if (game.title === currentTitle) {
+                        domClass.remove(game.domNode, 'hidden');
+                    }
+                    else {
+                        domClass.add(game.domNode, 'hidden');
+                    }
+                });
+            }));
         });
     </script>
 </head>
 <body>
-    <div class="all-container" id="laoLetterChallengeContainer">
-</div>
+    <div class="all-container" >
+        <div class="full-screen-mobile-container">
+            <div class="simple-mobile-container header-container">
+                <h1 class="big-title">
+                    <img alt="laolol" src="/public/images/laolol_title.png" /><span>LAOLOL</span>
+                </h1>
+            </div>
+            <div id="laoLetterTabContainer" class="tabs-container clear-box">
+                <div class="simple-tab" title="consonants">
+                    <span class="main-tab-text">ອັກສອນ</span><br />
+                    consonants<br />
+                    consonnes
+                </div>
+                <div class="simple-tab inactive"  title="vowels">
+                    <span class="main-tab-text">ສະຫຼະ</span><br />
+                    vowels<br />
+                    voyelles
+                </div>
+                <div class="simple-tab inactive"  title="numbers">
+                    <span class="main-tab-text">ເລກ</span><br />
+                    numbers<br />
+                    nombres
+                </div>
+            </div>
+            <div id="laoLetterChallengeContainer" class="simple-mobile-container  main-container">
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,8 +1,11 @@
 [
     {
         "lao": "ກ",
-        "rom": "Ko",
-        "song": "01_ko_kai_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Ko"
+        },
+        "song": "consonnes/01_ko_kai_1.mp3",
         "laoWord": "ໄກ່",
         "romWord": {
             "fr": "kay",
@@ -12,8 +15,11 @@
     },
     {
         "lao": "ຂ",
-        "rom": "Khò",
-        "song": "02_kho_khai_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Khò"
+        },
+        "song": "consonnes/02_kho_khai_1.mp3",
         "laoWord": "ໄຂ່",
         "romWord": {
             "fr": "khay",
@@ -21,10 +27,13 @@
         },
         "illustration": "02_khay.gif"
     },
-                    {
+    {
         "lao": "ຄ",
-        "rom": "Kho",
-        "song": "03_kho_khouay_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Kho"
+        },
+        "song": "consonnes/03_kho_khouay_1.mp3",
         "laoWord": "ຄວາຍ",
         "romWord": {
             "fr": "khoua:y",
@@ -34,8 +43,11 @@
     },
     {
         "lao": "ງ",
-        "rom": "Ngo",
-        "song": "04_Ngo_Ngou_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Ngo"
+        },
+        "song": "consonnes/04_Ngo_Ngou_1.mp3",
         "laoWord": "ງົວ",
         "romWord": {
             "fr": "ngoua:",
@@ -45,8 +57,11 @@
     },
     {
         "lao": "ຈ",
-        "rom": "Tjo",
-        "song": "05_Cho_Choua_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Tjo"
+        },
+        "song": "consonnes/05_Cho_Choua_1.mp3",
         "laoWord": "ຈອກ",
         "romWord": {
             "fr": "",
@@ -56,8 +71,11 @@
     },
     {
         "lao": "ສ",
-        "rom": "Sò",
-        "song": "06_So_Seua_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Sò"
+        },
+        "song": "consonnes/06_So_Seua_1.mp3",
         "laoWord": "ເສືອ",
         "romWord": {
             "fr": "seua",
@@ -67,8 +85,11 @@
     },
     {
         "lao": "ຊ",
-        "rom": "So",
-        "song": "07_Xo_Xang_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "So"
+        },
+        "song": "consonnes/07_Xo_Xang_1.mp3",
         "laoWord": "ຊ້າງ",
         "romWord": {
             "fr": "sang",
@@ -78,19 +99,25 @@
     },
     {
         "lao": "ຍ",
-        "rom": "Gno",
-        "song": "08_Gno_Gnoug_.mp3",
+        "rom": {
+            "en": "",
+            "fr": "nyo"
+        },
+        "song": "consonnes/08_Gno_Gnoug_.mp3",
         "laoWord": "ຍຸງ",
         "romWord": {
-            "fr": "gnoung",
+            "fr": "nyoung",
             "en": "nyung"
         },
         "illustration": "08_gnoung.gif"
     },
     {
         "lao": "ດ",
-        "rom": "Do",
-        "song": "09_Do_Dek_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Do"
+        },
+        "song": "consonnes/09_Do_Dek_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -100,8 +127,11 @@
     },
     {
         "lao": "ຕ",
-        "rom": "To",
-        "song": "10_To_Ta_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "To"
+        },
+        "song": "consonnes/10_To_Ta_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -111,8 +141,11 @@
     },
     {
         "lao": "ຖ",
-        "rom": "Thò",
-        "song": "11_Tho_Thay_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Thò"
+        },
+        "song": "consonnes/11_Tho_Thay_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -122,8 +155,11 @@
     },
     {
         "lao": "ທ",
-        "rom": "Tho",
-        "song": "12_Tho_Thoung_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Tho"
+        },
+        "song": "consonnes/12_Tho_Thoung_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -133,8 +169,11 @@
     },
     {
         "lao": "ນ",
-        "rom": "No",
-        "song": "13_No_Nok_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "No"
+        },
+        "song": "consonnes/13_No_Nok_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -144,8 +183,11 @@
     },
     {
         "lao": "ບ",
-        "rom": "Bo",
-        "song": "14_Bo_Beth_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Bo"
+        },
+        "song": "consonnes/14_Bo_Beth_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -155,8 +197,11 @@
     },
     {
         "lao": "ປ",
-        "rom": "Po",
-        "song": "15_Po_Pa_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Po"
+        },
+        "song": "consonnes/15_Po_Pa_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -166,8 +211,11 @@
     },
     {
         "lao": "ຜ",
-        "rom": "Phò",
-        "song": "16_Pho_Pheung_2.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Phò"
+        },
+        "song": "consonnes/16_Pho_Pheung_2.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -177,8 +225,11 @@
     },
     {
         "lao": "ຝ",
-        "rom": "Fò",
-        "song": "17_Fo_Faa_2.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Fò"
+        },
+        "song": "consonnes/17_Fo_Faa_2.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -188,8 +239,11 @@
     },
     {
         "lao": "ພ",
-        "rom": "Pho",
-        "song": "18_Pho_Phou_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Pho"
+        },
+        "song": "consonnes/18_Pho_Phou_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -199,8 +253,11 @@
     },
     {
         "lao": "ຟ",
-        "rom": "Fo",
-        "song": "19_Fo_Fai_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Fo"
+        },
+        "song": "consonnes/19_Fo_Fai_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -210,8 +267,11 @@
     },
     {
         "lao": "ມ",
-        "rom": "Mo",
-        "song": "20_Mo_Ma_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Mo"
+        },
+        "song": "consonnes/20_Mo_Ma_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -221,8 +281,11 @@
     },
     {
         "lao": "ຢ",
-        "rom": "Yo",
-        "song": "21_Yo_Yaa_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Yo"
+        },
+        "song": "consonnes/21_Yo_Yaa_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -232,8 +295,11 @@
     },
     {
         "lao": "ຣ",
-        "rom": "Ro",
-        "song": "22_Ro_Roth_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Ro"
+        },
+        "song": "consonnes/22_Ro_Roth_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -243,8 +309,11 @@
     },
     {
         "lao": "ລ",
-        "rom": "Lo",
-        "song": "23_Lo_Ling_2.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Lo"
+        },
+        "song": "consonnes/23_Lo_Ling_2.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -254,8 +323,11 @@
     },
     {
         "lao": "ວ",
-        "rom": "Vo",
-        "song": "24_Vo_Vii_2.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Vo"
+        },
+        "song": "consonnes/24_Vo_Vii_2.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -265,8 +337,11 @@
     },
     {
         "lao": "ຫ",
-        "rom": "Hò",
-        "song": "25_Ho_Hai_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "Hò"
+        },
+        "song": "consonnes/25_Ho_Hai_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -276,8 +351,11 @@
     },
     {
         "lao": "ອ",
-        "rom": "O",
-        "song": "26_O_OO_1.mp3",
+        "rom": {
+            "en": "",
+            "fr": "O"
+        },
+        "song": "consonnes/26_O_OO_1.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
@@ -287,7 +365,10 @@
     },
     {
         "lao": "ຮ",
-        "rom": "Ho",
-        "song": "27_Ho_Heua_2.mp3"
+        "rom": {
+            "en": "",
+            "fr": "Ho"
+        },
+        "song": "consonnes/27_Ho_Heua_2.mp3"
     }
 ]

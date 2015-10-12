@@ -53,6 +53,10 @@ function(declare, lang, on, _WidgetBase, _TemplatedMixin, template) {
             this.inherited(arguments);
         },
 
+        getChronoValue: function () {
+            return this.chronoTimeNode.textContent;
+        },
+
         launchChrono: function () {
             this.end = new Date();
             this.diff = this.end - this.start;
@@ -73,7 +77,7 @@ function(declare, lang, on, _WidgetBase, _TemplatedMixin, template) {
             else if (msec < 100) {
                 msec = '0' + msec;
             }
-            this.chronoTimeNode.innerHTML = hr + ':' + min + ':' + sec + ':' + msec;
+            this.chronoTimeNode.textContent = hr + ':' + min + ':' + sec + ':' + msec;
             this.timerID = setTimeout(lang.hitch(this, function () {
                 this.launchChrono();
             }), 10);
@@ -88,11 +92,11 @@ function(declare, lang, on, _WidgetBase, _TemplatedMixin, template) {
             this.launchChrono();
         },
         resetChrono: function () {
-            this.chronoTimeNode.innerHTML = '0:00:00:000';
+            this.chronoTimeNode.textContent = '0:00:00:000';
             this.start = new Date();
         },
         chronoStopReset: function () {
-            this.chronoTimeNode.innerHTML = '0:00:00:000';
+            this.chronoTimeNode.textContent = '0:00:00:000';
         },
         pauseChrono: function () {
             clearTimeout(this.timerID);

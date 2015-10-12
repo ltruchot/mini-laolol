@@ -1,0 +1,30 @@
+[
+    {
+        "lao": "Xະ",
+        "rom": {
+            "en": "",
+            "fr": "a"
+        },
+        "song": "voyelles/01_A.mp3",
+        "laoWord": "",
+        "romWord": {
+            "fr": "",
+            "en": ""
+        },
+        "illustration": ""
+    },
+    {
+        "lao": "Xາ",
+        "rom": {
+            "en": "",
+            "fr": "a:"
+        },
+        "song": "voyelles/02_AA.mp3",
+        "laoWord": "",
+        "romWord": {
+            "fr": "",
+            "en": ""
+        },
+        "illustration": ""
+    }
+]

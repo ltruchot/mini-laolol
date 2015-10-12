@@ -1,36 +1,34 @@
-<div>
-    <div class="full-screen-mobile-container">
-        <div class="simple-mobile-container header-container">
-            <h1 class="big-title">
-                <img alt="laolol" src="/public/images/laolol_title.png" /><span>LAOLOL</span>
-            </h1>
-        </div>
-        <div id="spellLetterGame" class="simple-mobile-container  main-container">
-            <div class="optionsContainer">
-                <span class="icon-question option-icon" id=""></span>
-                <span class="icon-volume-medium option-icon" data-dojo-attach-point="soundInterruptorNode"></span>
-            </div>
-            <h2>Lao letter Challenge</h2>
-            <button type="button" class="big-button" data-dojo-attach-point="launchBtnNode">Try a new letter</button>
-            <div class="sub-container">
-                <div class="letter-container" data-dojo-attach-point="laoLetterNode"></div>
-                <div class="illustration-container hidden splitted-container" data-dojo-attach-point="illustrationNode">
-                    <span class="" data-dojo-attach-point="laoWordNode"></span>
-                    <img class="hidden" data-dojo-attach-point="illustrationImgNode" src="" />
-                </div>
-            </div>
-            <div class="bottom-container">
-                <div class="input-text-container" id="romLetters">
-                    <input type="text" data-dojo-attach-point="answerInputNode" class="big-input" value="" />
-                </div>
-                <div class="special-text"  data-dojo-attach-point="chronometer" data-dojo-type="app/Chronometer"></div>
-                <div class="special-text" data-dojo-attach-point="scoreNode">
-                </div>
-            </div>
-        </div>
-        <audio data-dojo-attach-point="playerNode">
-            <source data-dojo-attach-point="playerSourceNode" type="audio/mp3"  />
-            Votre navigateur n'est pas compatible
-        </audio>
+<div class="hidden">
+    <div class="optionsContainer" data-dojo-attach-point="optionContainerNode">
+        <table class="overlayTable hidden" data-dojo-attach-point="currentNoticeTableNode">
+            <tr>
+                <th>Lao</th>
+                <th>Français</th>
+                <th>English</th>
+            </tr>
+        </table>
+        <span class="icon-question option-icon" data-dojo-attach-point="btnCurrentNoticeNode"></span>
+        <span class="icon-volume-medium option-icon" data-dojo-attach-point="soundInterruptorNode"></span>
     </div>
+    <h2>Lao letter Challenge</h2>
+    <button type="button" class="big-button" data-dojo-attach-point="launchBtnNode">Try a new letter</button>
+    <div class="sub-container clear-box">
+        <div class="letter-container" data-dojo-attach-point="laoLetterNode"></div>
+        <div class="illustration-container hidden splitted-container" data-dojo-attach-point="illustrationNode">
+            <span class="" data-dojo-attach-point="laoWordNode"></span>
+            <img class="hidden" data-dojo-attach-point="illustrationImgNode" src="" />
+        </div>
+    </div>
+    <div class="bottom-container">
+        <div class="input-text-container" id="romLetters">
+            <input type="text" data-dojo-attach-point="answerInputNode" class="big-input" value="" />
+        </div>
+        <div class="special-text"  data-dojo-attach-point="chronometer" data-dojo-type="app/Chronometer"></div>
+        <div class="special-text" data-dojo-attach-point="scoreNode">
+        </div>
+    </div>
+     <audio data-dojo-attach-point="playerNode">
+        <source data-dojo-attach-point="playerSourceNode" type="audio/mp3"  />
+        Votre navigateur n'est pas compatible
+    </audio>
 </div>

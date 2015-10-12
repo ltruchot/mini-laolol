@@ -29,4 +29,5 @@ node_modules
 #laolol
 public/lib/dojo-release-1.10.4-src
 client/.sass-cache
-
+documentation
+design
