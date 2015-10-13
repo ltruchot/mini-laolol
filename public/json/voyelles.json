@@ -1,6 +1,6 @@
 [
     {
-        "lao": "Xະ",
+        "lao": "ອະ",
         "rom": {
             "en": "",
             "fr": "a"
@@ -14,12 +14,96 @@
         "illustration": ""
     },
     {
-        "lao": "Xາ",
+        "lao": "ອາ",
         "rom": {
             "en": "",
             "fr": "a:"
         },
         "song": "voyelles/02_AA.mp3",
+        "laoWord": "",
+        "romWord": {
+            "fr": "",
+            "en": ""
+        },
+        "illustration": ""
+    },
+    {
+        "lao": "ອິ",
+        "rom": {
+            "en": "",
+            "fr": "i"
+        },
+        "song": "voyelles/03_I.mp3",
+        "laoWord": "",
+        "romWord": {
+            "fr": "",
+            "en": ""
+        },
+        "illustration": ""
+    },
+    {
+        "lao": "ອີ",
+        "rom": {
+            "en": "",
+            "fr": "i:"
+        },
+        "song": "voyelles/04_II.mp3",
+        "laoWord": "",
+        "romWord": {
+            "fr": "",
+            "en": ""
+        },
+        "illustration": ""
+    },
+    {
+        "lao": "ອຶ",
+        "rom": {
+            "en": "",
+            "fr": "ue"
+        },
+        "song": "voyelles/05_UE.mp3",
+        "laoWord": "",
+        "romWord": {
+            "fr": "",
+            "en": ""
+        },
+        "illustration": ""
+    },
+    {
+        "lao": "ອື",
+        "rom": {
+            "en": "",
+            "fr": "ue:"
+        },
+        "song": "voyelles/06_UEE.mp3",
+        "laoWord": "",
+        "romWord": {
+            "fr": "",
+            "en": ""
+        },
+        "illustration": ""
+    },
+    {
+        "lao": "ອຸ",
+        "rom": {
+            "en": "",
+            "fr": "u"
+        },
+        "song": "voyelles/07_U.mp3",
+        "laoWord": "",
+        "romWord": {
+            "fr": "",
+            "en": ""
+        },
+        "illustration": ""
+    },
+    {
+        "lao": "ອູ",
+        "rom": {
+            "en": "",
+            "fr": "u:"
+        },
+        "song": "voyelles/08_UU.mp3",
         "laoWord": "",
         "romWord": {
             "fr": "",
