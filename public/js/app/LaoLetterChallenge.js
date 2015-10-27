@@ -15,6 +15,7 @@ define([
     'dijit/_WidgetBase',
     'dijit/_TemplatedMixin',
     'dijit/_WidgetsInTemplateMixin',
+    'dojo/_base/array',
     'dojo/_base/declare',
     'dojo/_base/lang',
     'dojo/dom',
@@ -27,7 +28,7 @@ define([
     'dojo/on',
     'dojo/text!/public/js/app/templates/LaoLetterChallenge.html'
 ],
-function(Chronometer, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, declare, lang, dom, domAttr, domClass, domConstruct, domStyle, JSON, keys, on, tmpl) {
+function(Chronometer, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, array, declare, lang, dom, domAttr, domClass, domConstruct, domStyle, JSON, keys, on, tmpl) {
 
     return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
 
@@ -43,6 +44,7 @@ function(Chronometer, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, dec
         gameTurnNumber: 10,
         isAllowedSound: true,
         templateString: tmpl,
+        lang: "fr",
         currentIllustration: '',
 
         /** @constructor */
@@ -60,6 +62,21 @@ function(Chronometer, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, dec
             console.log('app/LaoLetterChallenge@startup');
             this.inherited(arguments);
             this.prepareNotice();
+            this.asnwerButtons = [
+                this.anwserBtn1,
+                this.anwserBtn2,
+                this.anwserBtn3
+            ];
+            this.initializeGameHandlers();
+         
+        },
+
+        /**
+         * @method initializeGameHandlers
+         * @description initiaalize all game element events like click, mouseover, etc.
+         */
+        initializeGameHandlers: function() {
+            console.log('app/LaoLetterChallenge@initializeGameHandlers');
             this.own(
                 on(this.soundInterruptorNode, 'click', lang.hitch(this, function () {
                     this.switchSoundInterruptorState();
@@ -70,88 +87,72 @@ function(Chronometer, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, dec
                 on(this.btnCurrentNoticeNode, 'mouseout', lang.hitch(this, function () {
                     domClass.add(this.currentNoticeTableNode, 'hidden');
                 })),
-                on(this.launchBtnNode, 'click', lang.hitch(this, function () {
-                    var newRandIndex = -1;
-
-                    //if game is not begin, launch timer, reset score
-                    if (this.randIndex === -1) {
-                        this.scoreNode.textContent = '';
-                        this.scoreNode.textContent = 'Score: ' + this.currentScore + ' / ' + this.gameTurnNumber;
-                        this.chronometer.startChrono();
-                    }
-                    else {
-                        this.chronometer.continueChrono();
-                    }
-
-                    //reset dom state for a new letter try
-                    this.laoWordNode.textContent = '';
-                    domAttr.set(this.illustrationImgNode, 'src', '');
-                    domClass.remove(this.laoLetterNode, 'splitted-container');
-                    domClass.add(this.illustrationNode, 'hidden');
-                    domAttr.set(this.answerInputNode, 'value', '');
-                    domStyle.set(this.laoLetterNode, 'color', 'black');
-                    domAttr.remove(this.answerInputNode, 'disabled');
-                    this.switchButtonState(false);
-                    this.answerInputNode.focus();
-
-                    //ensure that the random index isn't the same 2 times
-                    do {
-                        newRandIndex = Math.floor(Math.random() * this.alphabet.length - 1) + 1;
-                    } while (this.randIndex === newRandIndex);
-
-                    //register and display new lao letter
-                    this.randIndex = newRandIndex;
-                    this.laoLetterNode.textContent = this.alphabet[this.randIndex].lao;
-                    domAttr.set(this.playerSourceNode, 'src', '/public/mp3/' + this.alphabet[this.randIndex].song);
-                    this.playerNode.load();
-                    this.currentIllustration = this.alphabet[this.randIndex].illustration || '';
-                    if (this.currentIllustration) {
-                        on(this.illustrationImgNode, 'load', lang.hitch(this, function () {
-                            domClass.remove(this.illustrationImgNode, 'hidden');
-                        }));
-                        domAttr.set(this.illustrationImgNode, 'src', '/public/images/illustration/' + this.currentIllustration);
-                    }
-                })),
-
-                on(this.answerInputNode, 'keypress', lang.hitch(this, function (evt) {
-                    if (evt.keyCode === keys.ENTER) {
-                        var currentValue = domAttr.get(this.answerInputNode, 'value');
-                        var currentLetterFr = this.alphabet[this.randIndex].rom.fr.toLowerCase();
-                        var currentLetterEn = this.alphabet[this.randIndex].rom.en.toLowerCase();
-                        if (currentValue && (currentValue.toLowerCase() === currentLetterFr || currentValue.toLowerCase() === currentLetterEn)) {
-                            this.currentScore++;
-                            domStyle.set(this.laoLetterNode, 'color', 'green');
-                            domAttr.set(this.answerInputNode, 'value', 'Bravo: ' + currentValue);
-                            this.endCurrentLetterTry();
-                        }
-                        else if (this.tryNumber < 2) {
-                            this.tryNumber++;
-                            domStyle.set(this.laoLetterNode, 'color', 'red');
-                            setTimeout(lang.hitch(this, function () {
-                                domStyle.set(this.laoLetterNode, 'color', 'black');
-                            }), 350);
-                            domAttr.set(this.answerInputNode, 'value', '');
-                        }
-                        else {
-                            domAttr.set(this.answerInputNode, 'value', 'Perdu: ' + currentLetterFr);
-                            this.endCurrentLetterTry();
-
-                        }
-
-                        //display score
-                        this.scoreNode.textContent = 'Score: ' + this.currentScore + ' / ' + this.gameTurnNumber;
-
-                        //end & reset game
-                        if (this.currentScore === this.gameTurnNumber) {
-                            window.alert('Score final : ' + this.chronometer.getChronoValue());
-                            this.randIndex = -1;
-                            this.currentTryNumber = 0;
-                            this.currentScore = 0;
-                        }
-
-                    }
-                }))
+                on(this.launchBtnNode, 'click', lang.hitch(this, 'onLaunchBtnClick')),
+                on(this.answerInputNode, 'keypress', lang.hitch(this, 'onAnswerInputKeypress'))
             );
+        },
+
+        /**
+         * @method onAnswerInputKeypress
+         * @description when keypess on answerInput Node, check if win or lose
+         */
+        onAnswerInputKeypress: function (evt) {
+            console.log('app/LaoLetterChallenge@onAnswerInputKeypress');
+        },
+
+        /**
+         * @method onLaunchBtnClick
+         * @description when launchButton is clicked, a new try begin
+         */
+        onLaunchBtnClick: function (evt) {
+            console.log('app/LaoLetterChallenge@onLaunchBtnClick');
+            var newRandIndex = -1;
+
+            //if game is not begin, launch timer, reset score
+            if (this.randIndex === -1) {
+                this.scoreNode.textContent = '';
+                this.scoreNode.textContent = 'Score: ' + this.currentScore + ' / ' + this.gameTurnNumber;
+                this.chronometer.startChrono();
+            }
+            else {
+                this.chronometer.continueChrono();
+            }
+
+            //reset dom state for a new letter try
+            this.laoWordNode.textContent = '';
+            domAttr.set(this.illustrationImgNode, 'src', '');
+            domClass.remove(this.laoLetterNode, 'splitted-container');
+            domClass.add(this.illustrationNode, 'hidden');
+            domAttr.set(this.answerInputNode, 'value', '');
+            domStyle.set(this.laoLetterNode, 'color', 'black');
+            domAttr.remove(this.answerInputNode, 'disabled');
+            this.switchButtonState(false);
+            this.answerInputNode.focus();
+            array.forEach(this.asnwerButtons, function (btn) {
+                domClass.add(btn, 'hidden');
+            })
+
+            //ensure that the random index isn't the same 2 times
+            do {
+                newRandIndex = Math.floor(Math.random() * this.alphabet.length - 1) + 1;
+            } while (this.randIndex === newRandIndex);
+
+            //register and display new lao letter
+            this.randIndex = newRandIndex;
+            this.laoLetterNode.textContent = this.alphabet[this.randIndex].lao;
+            domAttr.set(this.playerSourceNode, 'src', '/public/mp3/' + this.alphabet[this.randIndex].song);
+            this.playerNode.load();
+            this.currentIllustration = this.alphabet[this.randIndex].illustration || '';
+            if (this.currentIllustration) {
+                on(this.illustrationImgNode, 'load', lang.hitch(this, function () {
+                    domClass.remove(this.illustrationImgNode, 'hidden');
+                }));
+                domAttr.set(this.illustrationImgNode, 'src', '/public/images/illustration/' + this.currentIllustration);
+            }
+            array.forEach(this.asnwerButtons, function (btn) {
+                btn.textContent = 'a';
+                domClass.remove(btn, 'hidden');
+            })
         },
 
         /**
@@ -213,7 +214,7 @@ function(Chronometer, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, dec
 
             //display lao word and illustration linked to current letter
             var laoWord = this.alphabet[this.randIndex].laoWord;
-            var romWord = this.alphabet[this.randIndex].romWord && (this.alphabet[this.randIndex].romWord.fr || this.alphabet[this.randIndex].romWord.en);
+            var romWord = this.alphabet[this.randIndex].romWord && (this.alphabet[this.randIndex].romWord[this.chosenLang]);
             if (laoWord && romWord) {
                 this.laoWordNode.textContent = laoWord + ' / ' + romWord;
                 domClass.remove(this.illustrationNode, 'hidden');
