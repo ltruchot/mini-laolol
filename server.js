@@ -36,5 +36,5 @@ app.use(compass({
 }));
 
 app.listen(port, function () {
-	console.log("running on http://localhost:8080/");
+	console.log("LAOLOL server is running on http://localhost:8080/");
 });
