@@ -204,8 +204,12 @@ Keypress
 
                 //register and display new lao lette
                 this.laoLetterNode.textContent = this.alphabet[this.randIndex].lao;
-                domAttr.set(this.playerSourceNode, 'src', '/public/mp3/' + this.alphabet[this.randIndex].song);
-                this.playerNode.load();
+                if (this.alphabet[this.randIndex].song) {
+                    domAttr.set(this.playerSourceNode, 'src', '/public/mp3/' + this.alphabet[this.randIndex].song);
+                    this.playerNode.load();
+                } else {
+                    domAttr.set(this.playerSourceNode, 'src', '');
+                }
                 this.currentIllustration = this.alphabet[this.randIndex].illustration || '';
                 if (this.currentIllustration) {
                     on(this.illustrationImgNode, 'load', lang.hitch(this, function() {

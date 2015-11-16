@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>LAOLOL: games to learn Lao Language</title>
     <script>
-        this.dojoConfig = {
-            async: true,
-            parseOnLoad: true,
-            baseUrl: '',
-            packages: [
-                {
-                    name: 'dojo', location: 'public/lib/dojo'
-                },
-                {
-                    name: 'dijit', location: 'public/lib/dijit'
-                },
-                {
-                    name: 'app', location: 'public/js/app'
-                },
-                {
-                    name: 'util', location: 'public/js/util'
-                }
-            ]
-        };
+    this.dojoConfig = {
+        async: true,
+        parseOnLoad: true,
+        baseUrl: '',
+        packages: [{
+            name: 'dojo',
+            location: 'public/lib/dojo'
+        }, {
+            name: 'dijit',
+            location: 'public/lib/dijit'
+        }, {
+            name: 'app',
+            location: 'public/js/app'
+        }, {
+            name: 'util',
+            location: 'public/js/util'
+        }]
+    };
     </script>
     <!-- <script src="public/lib/dojo-release-1.10.4-src/dojo.js"></script> -->
     <script src="public/lib/dojo/dojo.js"></script>
     <link rel="stylesheet" href="style/icomoon.css" />
     <link rel="stylesheet" href="style/laoletterchallenge.css" />
     <script>
-
-        require([
+    require([
             'app/LaoLetterChallenge',
             'dojo/_base/array',
             'dojo/dom',
@@ -43,24 +42,38 @@
             'dojo/NodeList-traverse',
             'dojo/on',
             'dojo/query',
-            'dojo/text!/public/json/consonnes.json',
-            'dojo/text!/public/json/voyelles.json',
+            'dojo/text!/public/json/consonants.json',
+            'dojo/text!/public/json/vowels.json',
+            'dojo/text!/public/json/numbers.json',
             'dojo/domReady!'
         ],
-        function (LaoLetterChallenge, array, dom, domAttr, domClass, domConstruct, JSON, nlDom, nlTraverse, on, query, jsonConsonnes, jsonVoyelles) {
+        function(LaoLetterChallenge, array, dom, domAttr, domClass, domConstruct, JSON, nlDom, nlTraverse, on, query, jsonConsonants, jsonVowels, jsonNumbers) {
             var handlers = [];
             var games = [];
+
+            //get commons dom elements 
             var laoLetterChallengeContainerNode = dom.byId('laoLetterChallengeContainer');
             var laoLetterTabContainerNode = dom.byId('laoLetterTabContainer');
-            var laoLetterChallengeConsonant = new LaoLetterChallenge(JSON.parse(jsonConsonnes), 'consonants');
-            var laoLetterChallengeVowel = new LaoLetterChallenge(JSON.parse(jsonVoyelles), 'vowels');
-            games.push(laoLetterChallengeConsonant, laoLetterChallengeVowel);
+
+            //consonants challenge construct & setup
+            var laoLetterChallengeConsonant = new LaoLetterChallenge(JSON.parse(jsonConsonants), 'consonant');
             domConstruct.place(laoLetterChallengeConsonant.domNode, laoLetterChallengeContainerNode);
-            domConstruct.place(laoLetterChallengeVowel.domNode, laoLetterChallengeContainerNode);
             laoLetterChallengeConsonant.startup();
+
+            //vowels challenge construct & setup
+            var laoLetterChallengeVowel = new LaoLetterChallenge(JSON.parse(jsonVowels), 'vowel');
+            domConstruct.place(laoLetterChallengeVowel.domNode, laoLetterChallengeContainerNode);
             laoLetterChallengeVowel.startup();
+
+            //numbers challenge construct & setup
+            var laoLetterChallengeNumber = new LaoLetterChallenge(JSON.parse(jsonNumbers), 'number');
+            domConstruct.place(laoLetterChallengeNumber.domNode, laoLetterChallengeContainerNode);
+            laoLetterChallengeNumber.startup();
+
+            //iterate on all games and configure first display
+            games.push(laoLetterChallengeConsonant, laoLetterChallengeVowel, laoLetterChallengeNumber);
             domClass.remove(games[0].domNode, 'hidden');
-            handlers.push(on(laoLetterTabContainerNode, '.simple-tab:click', function (event) {
+            handlers.push(on(laoLetterTabContainerNode, '.simple-tab:click', function(event) {
                 query('.simple-tab').addClass('inactive');
                 var currentTab = query(event.target).closest('.simple-tab');
                 domClass.remove(currentTab[0], 'inactive');
@@ -68,8 +81,7 @@
                 array.forEach(games, function(game) {
                     if (game.title === currentTitle) {
                         domClass.remove(game.domNode, 'hidden');
-                    }
-                    else {
+                    } else {
                         domClass.add(game.domNode, 'hidden');
                     }
                 });
@@ -77,8 +89,9 @@
         });
     </script>
 </head>
+
 <body>
-    <div class="all-container" >
+    <div class="all-container">
         <div class="full-screen-mobile-container">
             <div class="simple-mobile-container header-container">
                 <h1 class="big-title">
@@ -86,20 +99,20 @@
                 </h1>
             </div>
             <div id="laoLetterTabContainer" class="tabs-container clear-box">
-                <div class="simple-tab" title="consonants">
-                    <span class="main-tab-text">ອັກສອນ</span><br />
-                    consonants<br />
-                    consonnes
+                <div class="simple-tab" title="consonant">
+                    <span class="main-tab-text">ອັກສອນ</span>
+                    <br /> consonants
+                    <br /> consonnes
                 </div>
-                <div class="simple-tab inactive"  title="vowels">
-                    <span class="main-tab-text">ສະຫຼະ</span><br />
-                    vowels<br />
-                    voyelles
+                <div class="simple-tab inactive" title="vowel">
+                    <span class="main-tab-text">ສະຫຼະ</span>
+                    <br /> vowels
+                    <br /> voyelles
                 </div>
-                <div class="simple-tab inactive"  title="numbers">
-                    <span class="main-tab-text">ເລກ</span><br />
-                    numbers<br />
-                    nombres
+                <div class="simple-tab inactive" title="number">
+                    <span class="main-tab-text">ເລກ</span>
+                    <br /> numbers
+                    <br /> nombres
                 </div>
             </div>
             <div id="laoLetterChallengeContainer" class="simple-mobile-container  main-container">
@@ -107,4 +120,5 @@
         </div>
     </div>
 </body>
+
 </html>

@@ -102,4 +102,82 @@
         "en": ""
     },
     "illustration": ""
+}, {
+    "lao": "ເອະ",
+    "rom": {
+        "en": "",
+        "fr": "é"
+    },
+    "song": "voyelles/09_E_2.mp3",
+    "laoWord": "",
+    "romWord": {
+        "fr": "",
+        "en": ""
+    },
+    "illustration": ""
+}, {
+    "lao": "ເອ",
+    "rom": {
+        "en": "",
+        "fr": "é:"
+    },
+    "song": "voyelles/10_EE_2.mp3",
+    "laoWord": "",
+    "romWord": {
+        "fr": "",
+        "en": ""
+    },
+    "illustration": ""
+}, {
+    "lao": "ແອະ",
+    "rom": {
+        "en": "",
+        "fr": "è"
+    },
+    "song": "voyelles/11_AE_2.mp3",
+    "laoWord": "",
+    "romWord": {
+        "fr": "",
+        "en": ""
+    },
+    "illustration": ""
+}, {
+    "lao": "ແອ",
+    "rom": {
+        "en": "",
+        "fr": "è:"
+    },
+    "song": "voyelles/12_AEE_2a.mp3",
+    "laoWord": "",
+    "romWord": {
+        "fr": "",
+        "en": ""
+    },
+    "illustration": ""
+}, {
+    "lao": "ໂອະ",
+    "rom": {
+        "en": "",
+        "fr": "ô"
+    },
+    "song": "voyelles/13_O_2.mp3",
+    "laoWord": "",
+    "romWord": {
+        "fr": "",
+        "en": ""
+    },
+    "illustration": ""
+}, {
+    "lao": "ໂອ",
+    "rom": {
+        "en": "",
+        "fr": "ô:"
+    },
+    "song": "voyelles/14_OO_2.mp3",
+    "laoWord": "",
+    "romWord": {
+        "fr": "",
+        "en": ""
+    },
+    "illustration": ""
 }]
