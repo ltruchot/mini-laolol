@@ -95,51 +95,6 @@ define([
             },
 
             /**
-             * @method onAnswerInput
-Keypress
-             * @description when keypess on answerInput Node, check if win or lose
-             */
-            /* onAnswerInputKeypress: function (evt) {
-                 console.log('app/LaoLetterChallenge@onAnswerInputKeypress');
-                 if (evt.keyCode === keys.ENTER) {
-                     var currentValue = domAttr.get(this.answerInputNode, 'value');
-                     var currentLetterFr = this.alphabet[this.randIndex].rom.fr.toLowerCase();
-                     var currentLetterEn = this.alphabet[this.randIndex].rom.en.toLowerCase();
-                     if (currentValue && (currentValue.toLowerCase() === currentLetterFr || currentValue.toLowerCase() === currentLetterEn)) {
-                         this.currentScore++;
-                         domStyle.set(this.laoLetterNode, 'color', 'green');
-                         domAttr.set(this.answerInputNode, 'value', 'Bravo: ' + currentValue);
-                         this.endCurrentLetterTry();
-                     }
-                     else if (this.tryNumber < 2) {
-                         this.tryNumber++;
-                         domStyle.set(this.laoLetterNode, 'color', 'red');
-                         setTimeout(lang.hitch(this, function () {
-                             domStyle.set(this.laoLetterNode, 'color', 'black');
-                         }), 350);
-                         domAttr.set(this.answerInputNode, 'value', '');
-                     }
-                     else {
-                         domAttr.set(this.answerInputNode, 'value', 'Perdu: ' + currentLetterFr);
-                         this.endCurrentLetterTry();
-
-                      }
-
-                      //display score
-                      this.scoreNode.textContent = 'Score: ' + this.currentScore + ' / ' + this.gameTurnNumber;
-
-                      //end & reset game
-                      if (this.currentScore === this.gameTurnNumber) {
-                          window.alert('Score final : ' + this.chronometer.getChronoValue());
-                          this.randIndex = -1;
-                          this.currentTryNumber = 0;
-                          this.currentScore = 0;
-                      }
-
-                  }
-             },*/
-
-            /**
              * @method onRomLetterBtnClick
              * @description when click on any romLetterBtn Node, check if win or lose
              */
@@ -210,11 +165,16 @@ Keypress
                 } else {
                     domAttr.set(this.playerSourceNode, 'src', '');
                 }
+
+                //prepare illusration and loader
                 this.currentIllustration = this.alphabet[this.randIndex].illustration || '';
                 if (this.currentIllustration) {
                     on(this.illustrationImgNode, 'load', lang.hitch(this, function() {
+                        domClass.add(this.illustrationLoaderNode, 'hidden');
                         domClass.remove(this.illustrationImgNode, 'hidden');
                     }));
+                    domClass.remove(this.illustrationLoaderNode, 'hidden');
+                    domClass.add(this.illustrationImgNode, 'hidden');
                     domAttr.set(this.illustrationImgNode, 'src', '/public/images/illustration/' + this.currentIllustration);
                 }
 

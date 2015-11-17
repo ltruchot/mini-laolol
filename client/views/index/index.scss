@@ -27,14 +27,20 @@ body {
         min-width: 320px;
         height: 949px;
         margin: 0 auto;
-        padding: 30px 0 0;
+        padding: 20px 0 0;
         background-image: url(/public/images/bg_champasak_fondu.jpg);
+        background-position: center;
         background-repeat: no-repeat;
+        border-radius: 20px;
         position: relative;
+        box-sizing: border-box;
         .full-screen-mobile-container {
             max-width: 320px !important;
             padding: 0;
             margin: 0 auto;
+            h2 {
+                font-size: 18px;
+            }
             .tabs-container {
                 margin: 10px auto 0;
                 .simple-tab {
@@ -84,6 +90,11 @@ body {
                             margin: 0 auto;
                         }
                     }
+                }
+                .global-loader {
+                    display: inline-block;
+                    box-sizing: border-box;
+                    padding: 150px 0 0;
                 }
                 &.main-container {
                     padding: 0 20px;
@@ -136,6 +147,10 @@ body {
                         .illustration-container {
                             padding: 20px 10px 10px 10px;
                             box-sizing: border-box;
+                            .illusation-loader {
+                                margin: 20px auto;
+                                display: block;
+                            }
                         }
                         .splitted-container {
                             padding: 10px;

@@ -1,4 +1,4 @@
-<div class="hidden">
+<div class="hidden global-widget-container">
     <div class="optionsContainer" data-dojo-attach-point="optionContainerNode">
         <table class="overlayTable hidden" data-dojo-attach-point="currentNoticeTableNode">
             <tr>
@@ -10,12 +10,13 @@
         <span class="icon-question option-icon" data-dojo-attach-point="btnCurrentNoticeNode"></span>
         <span class="icon-volume-medium option-icon" data-dojo-attach-point="soundInterruptorNode"></span>
     </div>
-    <h2>Lao letter Challenge</h2>
+    <h2>Lao ${title} Challenge</h2>
     <button type="button" class="big-button" data-dojo-attach-point="launchBtnNode">Try a new ${title}</button>
     <div class="sub-container clear-box">
         <div class="letter-container" data-dojo-attach-point="laoLetterNode"></div>
         <div class="illustration-container hidden splitted-container" data-dojo-attach-point="illustrationNode">
             <span class="" data-dojo-attach-point="laoWordNode"></span>
+            <img class="hidden illusation-loader" data-dojo-attach-point="illustrationLoaderNode" src="/public/images/little_blue_loader.gif" />
             <img class="hidden" data-dojo-attach-point="illustrationImgNode" src="" />
         </div>
     </div>

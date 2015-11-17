@@ -59,7 +59,7 @@
     "song": "consonnes/05_Cho_Choua_1.mp3",
     "laoWord": "ຈອກ",
     "romWord": {
-        "fr": "",
+        "fr": "chok",
         "en": "chok"
     },
     "illustration": "05_chok.jpg"
@@ -122,9 +122,9 @@
         "fr": "To"
     },
     "song": "consonnes/10_To_Ta_1.mp3",
-    "laoWord": "",
+    "laoWord": "ຕາ",
     "romWord": {
-        "fr": "",
+        "fr": "ta:",
         "en": ""
     },
     "illustration": "10_ta.gif"
@@ -132,12 +132,12 @@
     "lao": "ຖ",
     "rom": {
         "en": "",
-        "fr": "Thò"
+        "fr": "thò"
     },
     "song": "consonnes/11_Tho_Thay_1.mp3",
-    "laoWord": "",
+    "laoWord": "ຖົງ",
     "romWord": {
-        "fr": "",
+        "fr": "thong",
         "en": ""
     },
     "illustration": "11_thong.jpg"
@@ -148,9 +148,9 @@
         "fr": "Tho"
     },
     "song": "consonnes/12_Tho_Thoung_1.mp3",
-    "laoWord": "",
+    "laoWord": "ທຸງ",
     "romWord": {
-        "fr": "",
+        "fr": "thoung",
         "en": ""
     },
     "illustration": "12_thoung.jpg"
@@ -161,9 +161,9 @@
         "fr": "No"
     },
     "song": "consonnes/13_No_Nok_1.mp3",
-    "laoWord": "",
+    "laoWord": "ນົກ",
     "romWord": {
-        "fr": "",
+        "fr": "nok",
         "en": ""
     },
     "illustration": "13_nok.gif"
