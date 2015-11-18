@@ -1,12 +1,15 @@
 <div class="hidden global-widget-container">
     <div class="optionsContainer" data-dojo-attach-point="optionContainerNode">
-        <table class="overlayTable hidden" data-dojo-attach-point="currentNoticeTableNode">
-            <tr>
-                <th>Lao</th>
-                <th>Français</th>
-                <th>English</th>
-            </tr>
-        </table>
+        <div class="overlayNotice hidden" data-dojo-attach-point="currentNoticeNode">
+            <table class="overlayTable" data-dojo-attach-point="currentNoticeTableNode">
+                <tr>
+                    <th>Lao</th>
+                    <th>Phonetic</th>
+                    <th>Français</th>
+                    <th>English</th>
+                </tr>
+            </table>
+        </div>
         <span class="icon-question option-icon" data-dojo-attach-point="btnCurrentNoticeNode"></span>
         <span class="icon-volume-medium option-icon" data-dojo-attach-point="soundInterruptorNode"></span>
     </div>

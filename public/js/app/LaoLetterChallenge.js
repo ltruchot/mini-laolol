@@ -83,10 +83,10 @@ define([
                         this.switchSoundInterruptorState();
                     })),
                     on(this.btnCurrentNoticeNode, 'mouseover', lang.hitch(this, function() {
-                        domClass.remove(this.currentNoticeTableNode, 'hidden');
+                        domClass.remove(this.currentNoticeNode, 'hidden');
                     })),
                     on(this.btnCurrentNoticeNode, 'mouseout', lang.hitch(this, function() {
-                        domClass.add(this.currentNoticeTableNode, 'hidden');
+                        domClass.add(this.currentNoticeNode, 'hidden');
                     })),
                     on(this.launchBtnNode, 'click', lang.hitch(this, 'onLaunchBtnClick')),
                     on(this.romLettersNode, '.romLetterBtn:click', lang.hitch(this, 'onRomLetterBtnClick'))
@@ -225,8 +225,10 @@ define([
              */
             prepareNotice: function() {
                 console.log('app/LaoLetterChallenge@prepareNotice');
+                var introduction = domConstruct.toDom('<div>▲ indicates the "high tone" like in ຂ, ສ, ຖ, ຜ, ຟ, ຫ</div>' + '<div>▼ indicates the "low tone"</div>');
+                domConstruct.place(introduction, this.currentNoticeNode, 'first');
                 this.alphabet.forEach(lang.hitch(this, function(letter) {
-                    var row = domConstruct.toDom('<tr><td>' + letter.lao + '</td><td>' + letter.rom.fr + '</td><td>' + letter.rom.en + '</td></tr>');
+                    var row = domConstruct.toDom('<tr><td class="bigger-text">' + letter.lao + '</td><td>' + letter.rom.phonetic + '</td><td>' + letter.rom.fr + '</td><td>' + letter.rom.en + '</td></tr>');
                     domConstruct.place(row, this.currentNoticeTableNode);
                 }));
             },
